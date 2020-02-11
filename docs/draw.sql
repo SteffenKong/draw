@@ -2,7 +2,7 @@ create database if not exists draw charset=utf8;
 use draw;
 
 -- 管理员表
-create table if not exists draw_user(
+create table if not exists draw_admin(
     id mediumint unsigned auto_increment,
     account varchar(191) not null comment '账号',
     password varchar(191) not null comment '密码',
@@ -16,15 +16,15 @@ create table if not exists draw_user(
 
 
 -- 管理员信息附属表
-create table if not exists draw_user_info(
+create table if not exists draw_admin_info(
     id mediumint unsigned auto_increment,
-    user_id mediumint unsigned not null comment '管理员id',
+    admin_id mediumint unsigned not null comment '管理员id',
     email varchar(191) comment '邮箱',
     phone varchar(191) comment '手机号码',
     created_at datetime,
     updated_at datetime,
     primary key (id),
-    unique key uk_user_id (user_id),
+    unique key uk_admin_id (admin_id),
     unique key uk_email(email)
 )charset=utf8,engine=innodb;
 
